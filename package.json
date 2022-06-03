@@ -1,0 +1,31 @@
+{
+  "name": "js-code-challenges",
+  "version": "1.0.0",
+  "description": "Simple repo with linkedin js code challenge",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mkesavan13/js-code-challenges.git"
+  },
+  "keywords": [
+    "javascript",
+    "code",
+    "js",
+    "nodejs"
+  ],
+  "author": "Kesava Krishnan Madavan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mkesavan13/js-code-challenges/issues"
+  },
+  "homepage": "https://github.com/mkesavan13/js-code-challenges#readme",
+  "devDependencies": {
+    "@babel/core": "^7.18.2",
+    "@babel/preset-env": "^7.18.2",
+    "babel-jest": "^28.1.0",
+    "jest": "^28.1.0"
+  }
+}
