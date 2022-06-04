@@ -1,0 +1,34 @@
+on:
+  push:
+    branches:
+    - main
+
+jobs:
+  test:
+
+    name: Testing js-code-challenges
+    
+    runs-on: macos-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js lts/gallium
+        uses: actions/setup-node@v3
+        with:
+          node-version: lts/gallium
+      - name: Install NPM packages
+        run: npm install
+      - name: Run tests
+        run: npm run test
+      - name: Deploy
+        run: |
+          git checkout -b documentation
+          git config --global user.name "docs-publisher"
+          git config --global user.email "mkesavan13"
+          git add ./coverage
+          FILE_COUNT=$(git status -s | wc -l | xargs)
+          if [[ $FILE_COUNT != '0' ]]
+          then
+          git commit -m "docs: update coverage report"
+          git push origin documentation -f
+          fi
