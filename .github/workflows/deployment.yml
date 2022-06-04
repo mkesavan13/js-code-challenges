@@ -19,13 +19,15 @@ jobs:
       - name: Install NPM packages
         run: npm install
       - name: Run tests
-        run: npm run test
+        run: npm run test:coverage
+      - name: Update docs
+        run: npm run docs
       - name: Deploy
         run: |
           git checkout -b documentation
           git config --global user.name "docs-publisher"
           git config --global user.email "mkesavan13"
-          git add ./coverage
+          git add ./coverage ./docs
           FILE_COUNT=$(git status -s | wc -l | xargs)
           if [[ $FILE_COUNT != '0' ]]
           then
